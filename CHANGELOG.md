@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2025-07-05
+
+### Fixed
+- **Package Name in Settings**: Fixed `PackageName` constant in `McpUnitySettings.cs` to match the actual package name
+- Resolves "Could not locate Server directory" error in Unity Editor
+- Unity can now properly locate the Server~ directory using the correct package name
+
 ## [1.2.0] - 2025-07-05
 
 ### Added
