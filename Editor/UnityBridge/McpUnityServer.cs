@@ -191,6 +191,8 @@ namespace McpUnity.Unity
         /// </summary>
         public void InstallServer()
         {
+            McpLogger.LogInfo("Starting MCP server installation...");
+            
             string serverPath = McpUtils.GetServerPath();
 
             if (string.IsNullOrEmpty(serverPath) || !Directory.Exists(serverPath))
@@ -199,17 +201,31 @@ namespace McpUnity.Unity
                 return;
             }
 
+            McpLogger.LogInfo($"Installing MCP server at: {serverPath}");
+
             string nodeModulesPath = Path.Combine(serverPath, "node_modules");
             if (!Directory.Exists(nodeModulesPath))
             {
+                McpLogger.LogInfo("Running npm install...");
                 McpUtils.RunNpmCommand("install", serverPath);
+            }
+            else
+            {
+                McpLogger.LogInfo("node_modules already exists, skipping npm install");
             }
 
             string buildPath = Path.Combine(serverPath, "build");
             if (!Directory.Exists(buildPath))
             {
+                McpLogger.LogInfo("Running npm run build...");
                 McpUtils.RunNpmCommand("run build", serverPath);
             }
+            else
+            {
+                McpLogger.LogInfo("build folder already exists, skipping npm run build");
+            }
+            
+            McpLogger.LogInfo("MCP server installation completed!");
         }
         
         /// <summary>

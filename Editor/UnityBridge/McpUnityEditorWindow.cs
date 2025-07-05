@@ -298,8 +298,9 @@ namespace McpUnity.Unity
             // Force Install Server button
             if (GUILayout.Button("Force Install Server", GUILayout.Height(30)))
             {
+                McpLogger.LogInfo("Force Install Server button clicked - starting installation...");
                 McpUnityServer.Instance.InstallServer();
-                McpLogger.LogInfo("MCP Unity Server installed successfully.");
+                McpLogger.LogInfo("Check the Unity console for installation progress and results.");
             }
             
             EditorGUILayout.EndVertical();
