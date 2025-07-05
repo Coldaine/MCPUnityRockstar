@@ -3,12 +3,11 @@
 [![](https://badge.mcpx.dev?status=on 'MCP Enabled')](https://modelcontextprotocol.io/introduction)
 [![](https://img.shields.io/badge/Unity-000000?style=flat&logo=unity&logoColor=white 'Unity')](https://unity.com/releases/editor/archive)
 [![](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white 'Node.js')](https://nodejs.org/en/download/)
-[![](https://img.shields.io/github/stars/CoderGamester/mcp-unity 'Stars')](https://github.com/CoderGamester/mcp-unity/stargazers)
-[![](https://img.shields.io/github/last-commit/CoderGamester/mcp-unity 'Last Commit')](https://github.com/CoderGamester/mcp-unity/commits/main)
+[![](https://img.shields.io/github/stars/Coldaine/MCPUnityRockstar 'Stars')](https://github.com/Coldaine/MCPUnityRockstar/stargazers)
+[![](https://img.shields.io/github/last-commit/Coldaine/MCPUnityRockstar 'Last Commit')](https://github.com/Coldaine/MCPUnityRockstar/commits/main)
 [![](https://img.shields.io/badge/License-MIT-red.svg 'MIT License')](https://opensource.org/licenses/MIT)
 
-| [English](README.md) | [🇨🇳简体中文](README_zh-CN.md) | [🇯🇵日本語](README-ja.md) |
-|----------------------|---------------------------------|----------------------|
+
 
 ```                                                                        
                               ,/(/.   *(/,                                  
@@ -41,11 +40,16 @@
      ╚═╝     ╚═╝ ╚═════╝╚═╝              ╚═════╝ ╚═╝  ╚═══╝╚═╝   ╚═╝      ╚═╝   
 ```       
 
-MCP Unity is an implementation of the Model Context Protocol for Unity Editor, allowing AI assistants to interact with your Unity projects. This package provides a bridge between Unity and a Node.js server that implements the MCP protocol, enabling AI agents like Claude, Windsurf, and Cursor to execute operations within the Unity Editor.
+**MCP Unity Rockstar** is an enhanced fork of the original MCP Unity implementation, providing advanced Model Context Protocol capabilities for Unity Editor. This enhanced version includes additional features like simplified scene hierarchy resources and improved performance optimizations. It allows AI assistants to interact with your Unity projects through a bridge between Unity and a Node.js server that implements the MCP protocol, enabling AI agents like Claude, Windsurf, and Cursor to execute operations within the Unity Editor.
 
-<a href="https://glama.ai/mcp/servers/@CoderGamester/mcp-unity">
-  <img width="400" height="200" src="https://glama.ai/mcp/servers/@CoderGamester/mcp-unity/badge" alt="Unity MCP server" />
-</a>
+## 🚀 **Enhanced Fork**
+
+This is an enhanced fork of the original [MCP Unity](https://github.com/CoderGamester/mcp-unity) by CoderGamester, featuring:
+
+- ✨ **Enhanced Scene Hierarchy**: Lightweight `unity://scenes-hierarchy-simple` resource for improved performance
+- 🔧 **Improved Versioning**: Consistent package versioning across Unity and Node.js components  
+- 📦 **Package Manager Ready**: Optimized for Unity Package Manager import
+- 🎯 **AI-Optimized**: Better performance for AI agents requiring basic scene structure information
 
 ## Features
 
@@ -169,7 +173,7 @@ Installing this MCP Unity Server is a multi-step process:
 1. Open the Unity Package Manager (Window > Package Manager)
 2. Click the "+" button in the top-left corner
 3. Select "Add package from git URL..."
-4. Enter: `https://github.com/CoderGamester/mcp-unity.git`
+4. Enter: `https://github.com/Coldaine/MCPUnityRockstar.git`
 5. Click "Add"
 
 ![package manager](https://github.com/user-attachments/assets/a72bfca4-ae52-48e7-a876-e99c701b0497)
@@ -183,7 +187,7 @@ Installing this MCP Unity Server is a multi-step process:
 2. Navigate to Tools > MCP Unity > Server Window
 3. Click on the "Configure" button for your AI LLM client as shown in the image below
 
-![image](docs/configure.jpg)
+*Configuration window will appear in Unity Editor*
 
 4. Confirm the configuration installation with the given popup
 
@@ -340,6 +344,29 @@ Don't forget to shutdown the server with `Ctrl + C` before closing the terminal 
 
 MCP Unity is a powerful bridge that connects your Unity Editor environment to AI assistants LLM tools using the Model Context Protocol (MCP).
 
+</details>
+
+## 🙏 Credits & Acknowledgments
+
+This project is an enhanced fork of the original [MCP Unity](https://github.com/CoderGamester/mcp-unity) created by [CoderGamester](https://github.com/CoderGamester). 
+
+### Original Project
+- **Creator**: CoderGamester
+- **Repository**: https://github.com/CoderGamester/mcp-unity
+- **License**: MIT
+
+### Enhanced Fork Features
+- **Enhanced Scene Hierarchy**: Lightweight resource for improved AI performance
+- **Improved Package Management**: Better Unity Package Manager integration
+- **Version Consistency**: Standardized versioning across all components
+- **Performance Optimizations**: Faster response times for AI agents
+
+Special thanks to the original creator for building the foundation that made this enhanced version possible.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
 In essence, MCP Unity:
 -   Exposes Unity Editor functionalities (like creating objects, modifying components, running tests, etc.) as "tools" and "resources" that an AI can understand and use.
 -   Runs a WebSocket server inside Unity and a Node.js server (acting as a WebSocket client to Unity) that implements the MCP. This allows AI assistants to send commands to Unity and receive information back.
@@ -445,7 +472,7 @@ The workaround is to turn off **Reload Domain** in **Edit > Project Settings > E
 
 ## Support & Feedback
 
-If you have any questions or need support, please open an [issue](https://github.com/CoderGamester/mcp-unity/issues) on this repository or alternative you can reach out on:
+If you have any questions or need support, please open an [issue](https://github.com/Coldaine/MCPUnityRockstar/issues) on this repository or alternative you can reach out on:
 - Linkedin: [![](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white 'LinkedIn')](https://www.linkedin.com/in/miguel-tomas/)
 - Discord: gamester7178
 - Email: game.gamester@gmail.com

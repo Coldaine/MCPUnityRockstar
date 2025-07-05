@@ -33,5 +33,19 @@ This is ideal for AI agents that need to understand scene structure without the 
 
 ---
 
-*Note: This is an enhanced version built on the original MCP Unity package by CoderGamester*
-*Original Repository: https://github.com/CoderGamester/mcp-unity*
+## About This Fork
+
+This is **MCP Unity Rockstar**, an enhanced fork of the original [MCP Unity](https://github.com/CoderGamester/mcp-unity) by CoderGamester.
+
+### Enhanced Features
+- **Lightweight Scene Hierarchy**: New `unity://scenes-hierarchy-simple` resource
+- **Improved Performance**: Optimized for AI agents requiring basic scene structure
+- **Better Package Management**: Enhanced Unity Package Manager integration
+- **Version Consistency**: Standardized versioning across all components
+
+### Original Project
+- **Creator**: CoderGamester
+- **Repository**: https://github.com/CoderGamester/mcp-unity
+- **License**: MIT
+
+Special thanks to CoderGamester for creating the foundation that made this enhanced version possible.
