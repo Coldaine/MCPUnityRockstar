@@ -17,7 +17,7 @@
     "type": "git",
     "url": "https://github.com/Coldaine/MCPUnityRockstar.git"
   },
-  "description": "MCP Unity Rockstar - Enhanced fork of MCP Unity with improved performance, simplified scene hierarchy, and better package management for AI-powered Unity development.",
+  "description": "MCP Unity Rockstar - Enhanced fork of MCP Unity with improved performance, simplified scene hierarchy, and better package management for AI-powered Unity development. Enables AI assistants (Claude, VS Code, Cursor) to interact with Unity Editor through Model Context Protocol with resource discovery and 8+ tools for scene manipulation, asset management, and testing.",
   "dependencies": {
     "com.unity.nuget.newtonsoft-json": "3.2.1",
     "com.unity.editorcoroutines": "1.0.0",
