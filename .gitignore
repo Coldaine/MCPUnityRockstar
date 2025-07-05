@@ -9,8 +9,8 @@
 **/[Uu]ser[Ss]ettings/
 **/[Oo]bj/Debug/
 
-# Asset meta data should only be ignored when the corresponding asset is also ignored
-!**/[Aa]ssets/**/*.meta
+# Unity Package: Exclude ALL .meta files for Git distribution
+*.meta
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data

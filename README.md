@@ -120,6 +120,29 @@ The following tools are available for manipulating and querying Unity scenes and
 - Node.js 18 or later - to [start the server](#start-server)
 - npm 9 or later - to [debug the server](#debug-server)
 
+## 📦 Unity Package Installation
+
+### Install from Git Repository (Recommended)
+
+1. Open Unity Package Manager (`Window` > `Package Manager`)
+2. Click the `+` button in the top-left corner
+3. Select `Add package from git URL...`
+4. Enter: `https://github.com/Coldaine/MCPUnityRockstar.git`
+5. Click `Add`
+
+Unity will automatically:
+- Download the package from GitHub
+- Generate appropriate `.meta` files for your project
+- Install dependencies (`Newtonsoft.Json`, `Editor Coroutines`, `Test Framework`)
+- Add the MCP Unity tools to your Editor
+
+### Alternative: Manual Installation
+
+1. Clone or download this repository
+2. Copy the `Editor/` folder to your Unity project's `Packages/` directory
+3. Copy the `package.json` to the same location
+4. Unity will auto-detect and import the package
+
 > [!IMPORTANT]
 > **Project Path Cannot Contain Spaces**
 >
