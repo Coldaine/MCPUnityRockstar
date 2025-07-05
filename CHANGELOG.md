@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-07-05
+
+### Added
+- **Resource Discovery Fix**: Added `listResources` handler to enable VS Code to discover available Unity resources
+- Resources now properly discoverable by MCP clients (VS Code, Claude, etc.)
+
+### Changed  
+- **Package Name**: Changed from `com.gamelovers.mcp-unity` to `com.coldaine.mcp-unity-rockstar`
+- Package folder will now be `com.coldaine.mcp-unity-rockstar` instead of `com.gamelovers.mcp-unity`
+- Updated package metadata to reflect proper ownership and naming
+
+### Fixed
+- VS Code MCP clients can now see both tools AND resources (previously only tools were visible)
+
 ## [1.1.3] - 2025-07-04
 
 ### Added

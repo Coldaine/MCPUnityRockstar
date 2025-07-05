@@ -1,6 +1,7 @@
 // Import MCP SDK components
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { ListResourcesRequestSchema, ReadResourceRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 import { McpUnity } from './unity/mcpUnity.js';
 import { Logger, LogLevel } from './utils/logger.js';
 import { registerMenuItemTool } from './tools/menuItemTool.js';
@@ -81,9 +82,76 @@ async function startServer() {
 
     serverLogger.info('MCP Server started');
     
+    // Check actual SDK version running
+    try {
+      const sdkPackageJson = require('@modelcontextprotocol/sdk/package.json');
+      serverLogger.info(`MCP SDK version running: ${sdkPackageJson.version}`);
+    } catch (e) {
+      serverLogger.warn('Could not determine MCP SDK version.');
+    }
+    
     // Get the client name from the MCP server
     const clientName = server.server.getClientVersion()?.name || 'Unknown MCP Client';
     serverLogger.info(`Connected MCP client: ${clientName}`);
+    
+    // Add listResources handler for resource discovery
+    // This enables VS Code to discover what resources are available
+    server.server.setRequestHandler(ListResourcesRequestSchema, async () => {
+      resourceLogger.info('Handling listResources request for resource discovery');
+      
+      return {
+        resources: [
+          {
+            uri: 'unity://scenes_hierarchy_simple',
+            name: 'Simple Scene Hierarchy',
+            description: 'Lightweight scene hierarchy (name, instanceId, children only)',
+            mimeType: 'application/json'
+          },
+          {
+            uri: 'unity://scenes_hierarchy',
+            name: 'Scene Hierarchy',
+            description: 'Complete scene hierarchy with all GameObject details',
+            mimeType: 'application/json'
+          },
+          {
+            uri: 'unity://game_objects',
+            name: 'Game Objects',
+            description: 'Unity game objects with detailed information',
+            mimeType: 'application/json'
+          },
+          {
+            uri: 'unity://packages',
+            name: 'Packages',
+            description: 'Unity Package Manager packages',
+            mimeType: 'application/json'
+          },
+          {
+            uri: 'unity://assets',
+            name: 'Assets',
+            description: 'Unity project assets from Asset Database',
+            mimeType: 'application/json'
+          },
+          {
+            uri: 'unity://tests',
+            name: 'Tests',
+            description: 'Unity test assemblies and test cases',
+            mimeType: 'application/json'
+          },
+          {
+            uri: 'unity://console_logs',
+            name: 'Console Logs',
+            description: 'Unity console logs and messages',
+            mimeType: 'text/plain'
+          },
+          {
+            uri: 'unity://menu_items',
+            name: 'Menu Items',
+            description: 'Unity Editor menu items',
+            mimeType: 'application/json'
+          }
+        ]
+      };
+    });
     
     // Start Unity Bridge connection with client name in headers
     await mcpUnity.start(clientName);

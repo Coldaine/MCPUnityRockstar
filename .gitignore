@@ -18,6 +18,13 @@
 # Serena MCP Agent - Exclude personal project configuration and memories
 .serena/
 
+# VS Code and IDE configuration - Development only, not part of Unity package
+.vscode/
+.vscode
+
+# Personal development configuration
+mcp.json
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/

@@ -221,22 +221,45 @@ Installing this MCP Unity Server is a multi-step process:
 <details>
 <summary><span style="font-size: 1.1em; font-weight: bold;">Option 2: Configure Manually</span></summary>
 
-Open the MCP configuration file of your AI client (e.g. claude_desktop_config.json in Claude Desktop) and copy the following text:
+Open the MCP configuration file of your AI client (e.g. claude_desktop_config.json in Claude Desktop, or VS Code MCP settings) and add the MCP Unity Rockstar server configuration:
 
-> Replace `ABSOLUTE/PATH/TO` with the absolute path to your MCP Unity installation or just copy the text from the Unity Editor MCP Server window (Tools > MCP Unity > Server Window).
+> **Important**: Replace the path with the absolute path to YOUR Unity project's Packages folder where the MCP Unity Rockstar package is installed.
 
+### **For Claude Desktop (claude_desktop_config.json):**
 ```json
 {
    "mcpServers": {
-       "mcp-unity": {
+       "mcp-unity-rockstar": {
           "command": "node",
           "args": [
-             "ABSOLUTE/PATH/TO/mcp-unity/Server~/build/index.js"
+             "E:/_ProjectBroadside/ProjectBroadside/Packages/com.coldaine.mcp-unity-rockstar/Server~/build/index.js"
           ]
        }
    }
 }
 ```
+
+### **For VS Code MCP Extension:**
+```json
+{
+    "servers": {
+        "mcp-unity-rockstar": {
+            "type": "stdio",
+            "command": "node",
+            "args": [
+                "E:/_ProjectBroadside/ProjectBroadside/Packages/com.coldaine.mcp-unity-rockstar/Server~/build/index.js"
+            ]
+        }
+    }
+}
+```
+
+### **Path Examples by Platform:**
+- **Windows**: `C:/Users/YourUsername/UnityProjects/YourProject/Packages/com.coldaine.mcp-unity-rockstar/Server~/build/index.js`
+- **macOS**: `/Users/YourUsername/UnityProjects/YourProject/Packages/com.coldaine.mcp-unity-rockstar/Server~/build/index.js`  
+- **Linux**: `/home/yourusername/UnityProjects/YourProject/Packages/com.coldaine.mcp-unity-rockstar/Server~/build/index.js`
+
+> **Note**: The package name changed from `com.gamelovers.mcp-unity` to `com.coldaine.mcp-unity-rockstar` in version 1.2.0. Make sure to use the correct package folder name.
 
 </details>
 
@@ -369,7 +392,37 @@ MCP Unity is a powerful bridge that connects your Unity Editor environment to AI
 
 </details>
 
-## 🙏 Credits & Acknowledgments
+## � Troubleshooting
+
+### **Resources Not Showing in VS Code**
+If VS Code MCP extension shows tools but not resources:
+1. **Verify Package Version**: Ensure you're using MCP Unity Rockstar v1.2.0 or later (includes resource discovery fix)
+2. **Check Server Path**: Verify the MCP configuration points to the correct server path:
+   ```
+   YourUnityProject/Packages/com.coldaine.mcp-unity-rockstar/Server~/build/index.js
+   ```
+3. **Restart MCP Client**: Restart VS Code or your MCP client after configuration changes
+4. **Check Unity Server**: Ensure Unity Editor MCP server is running (Tools > MCP Unity > Server Window)
+
+### **Common Path Issues**
+- **Wrong Package Name**: Make sure to use `com.coldaine.mcp-unity-rockstar` (not the old `com.gamelovers.mcp-unity`)
+- **Relative vs Absolute Paths**: MCP configuration requires absolute paths, not relative ones
+- **Path Separators**: Use forward slashes `/` in paths, even on Windows
+- **Spaces in Paths**: Avoid spaces in Unity project paths to prevent configuration issues
+
+### **Package Installation Issues**
+If the package fails to install:
+1. **Remove Old Package**: First remove any existing `com.gamelovers.mcp-unity` package
+2. **Clear Package Cache**: Clear Unity Package Manager cache (Help > Clear Cache)
+3. **Verify Git URL**: Use exact URL: `https://github.com/Coldaine/MCPUnityRockstar.git`
+4. **Check Unity Version**: Ensure Unity 2022.3 or later
+
+### **Server Connection Issues**  
+- **Check WebSocket Port**: Default is 8090, ensure no conflicts with other applications
+- **Firewall Settings**: Allow Unity Editor and Node.js through Windows Firewall
+- **Node.js Version**: Ensure Node.js 18+ is installed and accessible
+
+## �🙏 Credits & Acknowledgments
 
 This project is an enhanced fork of the original [MCP Unity](https://github.com/CoderGamester/mcp-unity) created by [CoderGamester](https://github.com/CoderGamester). 
 
