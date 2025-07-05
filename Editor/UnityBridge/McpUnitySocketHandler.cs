@@ -65,7 +65,21 @@ namespace McpUnity.Unity
                 {
                     McpLogger.LogError($"Invalid JSON received: {jre.Message}. Data: {e.Data}");
                     // Attempt to send a parse error response. No requestId is available yet.
-                    Send(CreateResponse(null, CreateErrorResponse($"Invalid JSON format: {jre.Message}", "invalid_json")).ToString(Formatting.None));
+                    try
+                    {
+                        if (State == WebSocketState.Open)
+                        {
+                            Send(CreateResponse(null, CreateErrorResponse($"Invalid JSON format: {jre.Message}", "invalid_json")).ToString(Formatting.None));
+                        }
+                        else
+                        {
+                            McpLogger.LogWarning($"WebSocket not in Open state (State: {State}). Cannot send JSON error response.");
+                        }
+                    }
+                    catch (Exception sendEx)
+                    {
+                        McpLogger.LogError($"Failed to send WebSocket JSON error response: {sendEx.Message}");
+                    }
                     return;
                 }
 
@@ -99,13 +113,41 @@ namespace McpUnity.Unity
                 McpLogger.LogInfo($"WebSocket message response for request ID '{requestId}': {responseStr}");
                 
                 // Send the response back to the client
-                Send(responseStr);
+                try
+                {
+                    if (State == WebSocketState.Open)
+                    {
+                        Send(responseStr);
+                    }
+                    else
+                    {
+                        McpLogger.LogWarning($"WebSocket not in Open state (State: {State}). Cannot send response.");
+                    }
+                }
+                catch (Exception sendEx)
+                {
+                    McpLogger.LogError($"Failed to send WebSocket response: {sendEx.Message}");
+                }
             }
             catch (Exception ex)
             {
                 McpLogger.LogError($"Error processing message: {ex.Message}");
                 
-                Send(CreateErrorResponse($"Internal server error: {ex.Message}", "internal_error").ToString(Formatting.None));
+                try
+                {
+                    if (State == WebSocketState.Open)
+                    {
+                        Send(CreateErrorResponse($"Internal server error: {ex.Message}", "internal_error").ToString(Formatting.None));
+                    }
+                    else
+                    {
+                        McpLogger.LogWarning($"WebSocket not in Open state (State: {State}). Cannot send error response.");
+                    }
+                }
+                catch (Exception sendEx)
+                {
+                    McpLogger.LogError($"Failed to send WebSocket error response: {sendEx.Message}");
+                }
             }
         }
         
@@ -147,6 +189,11 @@ namespace McpUnity.Unity
         protected override void OnError(ErrorEventArgs e)
         {
             McpLogger.LogError($"WebSocket error: {e.Message}");
+            if (e.Exception != null)
+            {
+                McpLogger.LogError($"WebSocket exception details: {e.Exception}");
+            }
+            McpLogger.LogInfo($"WebSocket state during error: {State}");
         }
         
         /// <summary>
