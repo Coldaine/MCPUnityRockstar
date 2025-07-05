@@ -132,7 +132,7 @@ The following tools are available for manipulating and querying Unity scenes and
 
 Unity will automatically:
 - Download the package from GitHub
-- Generate appropriate `.meta` files for your project
+- Use the included `.meta` files with consistent GUIDs
 - Install dependencies (`Newtonsoft.Json`, `Editor Coroutines`, `Test Framework`)
 - Add the MCP Unity tools to your Editor
 
