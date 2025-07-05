@@ -9,8 +9,11 @@
 **/[Uu]ser[Ss]ettings/
 **/[Oo]bj/Debug/
 
-# Unity Package: Exclude ALL .meta files for Git distribution
-*.meta
+# Unity Package: Include .meta files for consistent GUIDs across installations
+# Only exclude .meta files for generated/temporary content
+*.tmp.meta
+**/Temp/**/*.meta
+**/Library/**/*.meta
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
