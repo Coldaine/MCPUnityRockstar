@@ -93,6 +93,9 @@ The following tools are available for manipulating and querying Unity scenes and
 - `unity://scenes-hierarchy`: Retrieves a list of all game objects in the current Unity scene hierarchy
   > **Example prompt:** "Show me the current scenes hierarchy structure"
 
+- `unity://scenes-hierarchy-simple`: Retrieves a lightweight hierarchy of all game objects with only essential information (name, instanceId, children)
+  > **Example prompt:** "Show me a simplified view of the scene hierarchy for quick reference"
+
 - `unity://gameobject/{id}`: Retrieves detailed information about a specific GameObject by instance ID or object path in the scene hierarchy, including all GameObject components with it's serialized properties and fields
   > **Example prompt:** "Get me detailed information about the Player GameObject"
 

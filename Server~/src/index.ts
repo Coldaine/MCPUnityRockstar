@@ -15,6 +15,7 @@ import { registerUpdateGameObjectTool } from './tools/updateGameObjectTool.js';
 import { registerGetMenuItemsResource } from './resources/getMenuItemResource.js';
 import { registerGetConsoleLogsResource } from './resources/getConsoleLogsResource.js';
 import { registerGetHierarchyResource } from './resources/getScenesHierarchyResource.js';
+import { registerGetHierarchySimpleResource } from './resources/getScenesHierarchySimpleResource.js';
 import { registerGetPackagesResource } from './resources/getPackagesResource.js';
 import { registerGetAssetsResource } from './resources/getAssetsResource.js';
 import { registerGetTestsResource } from './resources/getTestsResource.js';
@@ -62,6 +63,7 @@ registerGetGameObjectResource(server, mcpUnity, resourceLogger);
 registerGetMenuItemsResource(server, mcpUnity, resourceLogger);
 registerGetConsoleLogsResource(server, mcpUnity, resourceLogger);
 registerGetHierarchyResource(server, mcpUnity, resourceLogger);
+registerGetHierarchySimpleResource(server, mcpUnity, resourceLogger);
 registerGetPackagesResource(server, mcpUnity, resourceLogger);
 registerGetAssetsResource(server, mcpUnity, resourceLogger);
 

@@ -267,6 +267,10 @@ namespace McpUnity.Unity
             GetScenesHierarchyResource getScenesHierarchyResource = new GetScenesHierarchyResource();
             _resources.Add(getScenesHierarchyResource.Name, getScenesHierarchyResource);
             
+            // Register GetScenesHierarchySimpleResource
+            GetScenesHierarchySimpleResource getScenesHierarchySimpleResource = new GetScenesHierarchySimpleResource();
+            _resources.Add(getScenesHierarchySimpleResource.Name, getScenesHierarchySimpleResource);
+            
             // Register GetPackagesResource
             GetPackagesResource getPackagesResource = new GetPackagesResource();
             _resources.Add(getPackagesResource.Name, getPackagesResource);
