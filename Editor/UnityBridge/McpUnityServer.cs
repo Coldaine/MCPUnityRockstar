@@ -186,6 +186,22 @@ namespace McpUnity.Unity
         }
 
         /// <summary>
+        /// Get all available resource names for debugging
+        /// </summary>
+        public IEnumerable<string> GetAvailableResourceNames()
+        {
+            return _resources.Keys;
+        }
+
+        /// <summary>
+        /// Get all available tool names for debugging
+        /// </summary>
+        public IEnumerable<string> GetAvailableToolNames()
+        {
+            return _tools.Keys;
+        }
+
+        /// <summary>
         /// Installs the MCP Node.js server by running 'npm install' and 'npm run build'
         /// in the server directory if 'node_modules' or 'build' folders are missing.
         /// </summary>

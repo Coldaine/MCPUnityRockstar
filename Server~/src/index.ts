@@ -153,6 +153,24 @@ async function startServer() {
       };
     });
     
+    // Add readResource handler for resource access
+    // This enables VS Code to actually read the content of resources
+    server.server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
+      const uri = request.params.uri;
+      resourceLogger.info(`Handling readResource request for URI: ${uri}`);
+      
+      try {
+        // The server.resource() registrations should have created internal handlers
+        // We need to route the request to the appropriate handler based on URI
+        const result = await server.readResource({ uri });
+        resourceLogger.info(`Successfully handled readResource for URI: ${uri}`);
+        return result;
+      } catch (error) {
+        resourceLogger.error(`Failed to handle readResource for URI: ${uri}`, error);
+        throw error;
+      }
+    });
+    
     // Start Unity Bridge connection with client name in headers
     await mcpUnity.start(clientName);
     
