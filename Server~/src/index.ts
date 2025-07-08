@@ -13,6 +13,10 @@ import { registerGetConsoleLogsTool } from './tools/getConsoleLogsTool.js';
 import { registerUpdateComponentTool } from './tools/updateComponentTool.js';
 import { registerAddAssetToSceneTool } from './tools/addAssetToSceneTool.js';
 import { registerUpdateGameObjectTool } from './tools/updateGameObjectTool.js';
+import { registerGetScenesHierarchySimpleTool } from './tools/getScenesHierarchySimpleTool.js';
+import { registerGetScenesHierarchyTool } from './tools/getScenesHierarchyTool.js';
+import { registerGetScenesHierarchySimpleTool } from './tools/getScenesHierarchySimpleTool.js';
+import { registerGetScenesHierarchyTool } from './tools/getScenesHierarchyTool.js';
 import { registerGetMenuItemsResource } from './resources/getMenuItemResource.js';
 import { registerGetConsoleLogsResource } from './resources/getConsoleLogsResource.js';
 import { registerGetHierarchyResource } from './resources/getScenesHierarchyResource.js';
@@ -57,6 +61,8 @@ registerGetConsoleLogsTool(server, mcpUnity, toolLogger);
 registerUpdateComponentTool(server, mcpUnity, toolLogger);
 registerAddAssetToSceneTool(server, mcpUnity, toolLogger);
 registerUpdateGameObjectTool(server, mcpUnity, toolLogger);
+registerGetScenesHierarchySimpleTool(server, mcpUnity, toolLogger);
+registerGetScenesHierarchyTool(server, mcpUnity, toolLogger);
 
 // Register all resources into the MCP server
 registerGetTestsResource(server, mcpUnity, resourceLogger);
